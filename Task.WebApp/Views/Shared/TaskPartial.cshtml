@@ -1,0 +1,25 @@
+﻿@model Task.WebApp.ViewModels.MainViewModel
+
+@{
+    string className = "label-danger";
+    string textSpan = "Nie";
+
+    if (Model.RealizationState.ToLower() == "true")
+    {
+        className = "label-success";
+        textSpan = "Tak";
+    }
+}
+<div class="well">
+    <h3>
+        <strong>Do kiedy: @Model.RealizationDate</strong>
+    </h3>
+    <h5>
+        Utworzono: @Model.CreatingDate
+        <span class="pull-right">
+            Zrealizowano:
+            <span class="label @className"> @textSpan </span>
+        </span>
+    </h5>
+    <span class="lead">@Model.Description</span>
+</div>

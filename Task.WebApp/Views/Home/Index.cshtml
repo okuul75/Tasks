@@ -1,0 +1,22 @@
+﻿@using Task.WebApp.HtmlHelpers
+@using Task.WebApp.ViewModels
+
+@model IEnumerable<TaskViewModel>
+
+@{
+    ViewBag.Title = "Zadania";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var t in Model)
+{
+
+    foreach (var task in t.Tasks)
+    {
+        @Html.Partial("TaskPartial", task)
+    }
+}
+
+@*<div class="btn-group pull-right">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("TasksList", new { page = x, state = Model.RealizationState }))
+</div>*@
